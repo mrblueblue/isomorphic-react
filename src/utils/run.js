@@ -1,6 +1,6 @@
 'use strict'
 
-const run = function(generator) {
+export default function run (generator){
   let gen = generator();
   next();
 
@@ -12,5 +12,3 @@ const run = function(generator) {
     callback(next);
   }
 }
-
-module.exports = run;

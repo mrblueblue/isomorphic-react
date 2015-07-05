@@ -1,16 +1,11 @@
 'use strict'
 
-const thunkify = function(func){
- 
+export default function thunkify(func){
   return function(){
-
-    let args = Array.prototype.slice.call(arguments);
-
+    let args = [].slice.call(arguments);
     return function(callback){
       args.push(callback);
       func.apply(this, args);
     }
   }
 }
-
-module.exports = thunkify;

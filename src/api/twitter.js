@@ -1,8 +1,8 @@
 'use strict'
 
-const Twitter = require('twitter');
-const thunkify = require('../utils/thunkify');
-const config = require('./config');
+import Twitter from 'twitter';
+import thunkify from  '../utils/thunkify';
+import config from './config';
 
 const client = new Twitter({
   consumer_key: config.TWITTER_CONSUMER_KEY,
@@ -11,11 +11,17 @@ const client = new Twitter({
   access_token_secret: config.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-module.exports.findAllTweets = thunkify(
-  client.get.bind(client, 'search/tweets', {
-    geocode: '37.781157,-122.398720,1mi',
-    count: 10,
-    lang: 'en',
-    result_type: 'recent'  
-  })
-);
+export default {
+
+  findAllTweets: thunkify(
+    client.get.bind(client, 'search/tweets', {
+      geocode: '37.781157,-122.398720,1mi',
+      count: 10,
+      lang: 'en',
+      result_type: 'recent'  
+    })
+  )
+
+  
+
+}
