@@ -1,0 +1,37 @@
+{
+  "name": "isomorphic-react",
+  "version": "0.0.1",
+  "description": "an isomorphic react-flux/alt application using the twitter api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrblueblue/isomorphic-react.git"
+  },
+  "keywords": [
+    "isomorphic",
+    "react",
+    "flux",
+    "alt"
+  ],
+  "author": "mrblueblue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrblueblue/isomorphic-react/issues"
+  },
+  "homepage": "https://github.com/mrblueblue/isomorphic-react",
+  "dependencies": {
+    "alt": "^0.17.0",
+    "express": "^4.13.0",
+    "iso": "^4.1.0",
+    "jade": "^1.11.0",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "twitter": "^1.2.5"
+  },
+  "devDependencies": {
+    "babel": "^5.6.14"
+  }
+}
