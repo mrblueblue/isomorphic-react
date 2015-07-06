@@ -1,9 +1,8 @@
 import React from 'react';
 import TweetStore from '../../stores/TweetStore';
-import Tweet from '../Tweet';
 
 import SideBar from '../SideBar';
-import Header from '../Header';
+import { RouteHandler } from 'react-router';
 
 export default class App extends React.Component {
   constructor() {
@@ -20,30 +19,15 @@ export default class App extends React.Component {
   }
 
   render(){
+    let { tweets } = this.state
+
+
     return (
       <div >
         <SideBar/>
-        <div className='main-view'>
-          <Header/>
-          <div className="list-container">
-            <div className="container">
-            {this.state.tweets.map(this.renderTweet)}
-            </div>
-          </div>
-        </div>
+        <RouteHandler tweets={tweets} />
       </div>
-
     );
   }
 
-  renderTweet(tweet){
-    let props = {
-      key: tweet.id,
-      text: tweet.text,
-      user: tweet.user.screen_name
-    }
-
-    return (
-      <Tweet {...props} />);
-  }
 }

@@ -26,7 +26,6 @@ app.use((req, res) => {
     const node = React.renderToString(React.createElement(Handler));
     iso.add(node, alt.flush());
     res.render('layout', { html: iso.render() });
-
   });
 });
 
