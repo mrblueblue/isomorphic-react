@@ -1,0 +1,117 @@
+@import '../../node_modules/sass-flex-mixin/_flex.scss';
+@import 'base';
+@import 'bootstrap';
+
+$header-size: 200px;
+
+@mixin header {
+  position: absolute;
+  width: 100%;
+  height: $header-size;
+}
+
+@mixin center-container {
+  background: #fff;
+  width: 100%;
+  height: auto;
+  margin-top: $header-size;
+  padding: 10px 0;
+}
+
+.main-view {
+  @include flex;
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+ 
+  position: relative;
+  margin-left: 175px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.sidebar {
+  @include flex;
+  @include flex-direction(column);
+
+  height: 100vh;
+  width: 175px;
+  background: $primary;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  a {
+    color: #D8D8D8;
+    transition: color ease-in-out 0.5s;
+  }
+
+  a:hover, a:active, a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.list-header {
+  @include header;
+  opacity: 1;
+  background: RGBA(245,248,250,.6);
+  padding-top: 20px;
+  box-shadow: 0 0 2px #ddd;
+
+  canvas {
+    position: absolute;
+    top: 0;
+  }
+}
+
+h1.list-header__title {
+  font-weight: 100;
+  margin-bottom: 0;
+}
+
+p.list-header__about {
+  max-width: 720px;
+  line-height: 30px;
+}
+
+.list-container {
+  @include center-container;
+  padding-top: 15px;
+}
+
+ul.location-nav {
+  li {
+    text-align: center;
+    padding: 15px 0;
+    font-size: $base-font-size;
+    font-size: 12px;
+
+    a {
+      font-weight: 100;
+    }
+  }
+}
+
+li.location-nav--selected {
+  background: $primary-dark;
+  border-left: 3px solid $peach;
+  color: #fff;
+}
+
+.location-input {
+  height: 25px;
+  width: 200px;
+  border: none;
+}
+
+.input-container {
+  @include flex;
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+}

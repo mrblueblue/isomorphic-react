@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default class Tweet extends React.Component {
-
   render(){
     return (
       <div>
@@ -10,7 +9,6 @@ export default class Tweet extends React.Component {
       </div>
     );
   }
-
 }
 
 Tweet.propTypes = {

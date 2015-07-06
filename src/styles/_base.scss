@@ -1,0 +1,34 @@
+$base-font-size: 14px;
+$primary: #4B5086;
+$primary-dark: #393c65;
+$peach: #E48263;
+$light-white: RGBA(245, 248, 250, 0.6);
+
+body {
+  margin: 0;
+  font-family: "proxima-nova", sans-serif;
+  font-size: $base-font-size;
+  font-weight: 300;
+}
+
+html, body {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}

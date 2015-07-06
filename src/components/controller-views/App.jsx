@@ -2,8 +2,10 @@ import React from 'react';
 import TweetStore from '../../stores/TweetStore';
 import Tweet from '../Tweet';
 
-export default class App extends React.Component {
+import SideBar from '../SideBar';
+import Header from '../Header';
 
+export default class App extends React.Component {
   constructor() {
     super();
     this.state = TweetStore.getState();
@@ -18,11 +20,23 @@ export default class App extends React.Component {
   }
 
   render(){
-    return (<div>{this.state.tweets.map(this.renderTweet)}</div>);
+    return (
+      <div >
+        <SideBar/>
+        <div className='main-view'>
+          <Header/>
+          <div className="list-container">
+            <div className="container">
+            {this.state.tweets.map(this.renderTweet)}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    );
   }
 
   renderTweet(tweet){
-
     let props = {
       key: tweet.id,
       text: tweet.text,

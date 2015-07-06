@@ -16,12 +16,10 @@ export default {
   findAllTweets: thunkify(
     client.get.bind(client, 'search/tweets', {
       geocode: '37.781157,-122.398720,1mi',
-      count: 25,
+      count: 50,
       lang: 'en',
       result_type: 'recent'  
     })
   )
-
   
-
 }
