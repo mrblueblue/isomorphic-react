@@ -13,13 +13,17 @@ const client = new Twitter({
 
 export default {
 
-  findAllTweets: thunkify(
-    client.get.bind(client, 'search/tweets', {
-      geocode: '37.781157,-122.398720,1mi',
-      count: 50,
-      lang: 'en',
-      result_type: 'recent'  
-    })
-  )
-  
+  findTweetsByGeoCode(geocode){
+    let { latitude, longitude } = geocode;
+    console.log(latitude, longitude)
+    return thunkify(
+      client.get.bind(client, 'search/tweets', {
+        geocode: `${latitude},${longitude},10mi`,
+        count: 50,
+        lang: 'en',
+        result_type: 'recent'  
+      })
+    )();
+  }
+
 }
