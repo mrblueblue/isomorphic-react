@@ -8,7 +8,7 @@ class TweetStore {
     this.bindListeners({
       handleUpdateTweets: TweetActions.UPDATE_TWEETS,
       handleFetchTweets: TweetActions.FETCH_TWEETS,
-      handleTweetsFailed: TweetActions.MESSAGES_FAILED
+      handleTweetsFailed: TweetActions.TWEETS_FAILED
     });
   }
 

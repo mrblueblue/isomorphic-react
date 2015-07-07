@@ -12,10 +12,11 @@ export default class SideBar extends React.Component {
 
 class LocationNav extends React.Component {
   render(){
+    console.log("SideBar Render")
     return (
       <nav>
         <ul className="location-nav">
-          <a ><li><h2>LOCATIONS</h2></li></a>
+          <a ><li><h3>LOCATIONS</h3></li></a>
           <a></a>
           <a ><li className="location-nav--selected">San Francisco</li></a>
           <a ><li>Miami</li></a>

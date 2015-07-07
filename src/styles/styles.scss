@@ -1,6 +1,9 @@
-@import '../../node_modules/sass-flex-mixin/_flex.scss';
-@import 'base';
-@import 'bootstrap';
+
+@import 
+'../../node_modules/sass-flex-mixin/_flex.scss',
+'../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-sprockets',
+'../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap',
+'base';
 
 $header-size: 200px;
 
@@ -114,4 +117,5 @@ li.location-nav--selected {
   @include flex;
   @include flex-direction(row);
   @include justify-content(flex-start);
+  padding-left: 10px;
 }
