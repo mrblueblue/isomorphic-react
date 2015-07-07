@@ -13,9 +13,8 @@ const client = new Twitter({
 
 export default {
 
-  findTweetsByGeoCode(geocode){
+  findTweetsByGeoCode: function(geocode){
     let { latitude, longitude } = geocode;
-    console.log(latitude, longitude)
     return thunkify(
       client.get.bind(client, 'search/tweets', {
         geocode: `${latitude},${longitude},10mi`,
