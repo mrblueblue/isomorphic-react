@@ -5,13 +5,20 @@ import WebAPI from '../api/web';
 
 class TweetActions {
 
+  addLocation(location){
+    this.dispatch(location);
+  }
+
   updateTweets(tweets) {
     this.dispatch(tweets);
   }
 
   fetchTweets(location) {
     this.dispatch();
-    WebAPI.getTweetsByLocation(location)     
+    WebAPI.getTweetsByLocation(location)
+      .then((response) => response.json() )
+      .then((json) => this.actions.updateTweets(json) )
+  
   }
 
   tweetsFailed(errorMessage) {
