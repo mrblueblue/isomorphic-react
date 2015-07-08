@@ -7,7 +7,7 @@ export default class Header extends React.Component {
       <div className="list-header">
         <div className="container">
           <Headline />
-          <LocationInput />
+          <LocationInput {...this.props}/>
         </div>
       </div>
     );
@@ -39,7 +39,6 @@ class LocationInput extends React.Component {
 
   render(){
     let input = this.state.input;
-    console.log('LocationINput')
     return (
       <div className="form-group">
         <form onSubmit={this.handleSubmit.bind(this)}>
@@ -58,9 +57,14 @@ class LocationInput extends React.Component {
     event.preventDefault();
     let { router } = this.context;
     let location = this.state.input;
+
     this.setState({input: ''});
+
     TweetActions.fetchTweets(location);
-    router.transitionTo(`/search?location=${location}`);
+    TweetActions.addLocation(location);
+    this.props.changeSelection(this.props.locations.length - 1 );
+
+    router.transitionTo(`/search?location=${location}`);    
   }
 
   handleChange(event){

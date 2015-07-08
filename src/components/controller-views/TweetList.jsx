@@ -4,12 +4,9 @@ import Header from '../Header';
 
 export default class TweetList extends React.Component {
   render(){
-    console.log(this.props.query, 'props');
-    console.log(this.props.params, 'props');
-    console.log(this.context, 'context');
     return (
       <div className='main-view'>
-        <Header/>
+        <Header {...this.props}/>
         <div className="list-container">
           <div className="container">
           {this.props.tweets.map(this.renderTweet)}

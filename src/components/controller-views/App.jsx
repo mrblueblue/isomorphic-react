@@ -8,6 +8,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = TweetStore.getState();
+    this.state.selection = 0;
   }
 
   componentDidMount() {
@@ -19,15 +20,26 @@ export default class App extends React.Component {
   }
 
   render(){
-    let { tweets } = this.state
-
-
+    let { tweets, locations, selection } = this.state
+    console.log(this.state, 'statetatte')
     return (
       <div >
-        <SideBar/>
-        <RouteHandler tweets={tweets} />
+        <SideBar 
+          locations={locations}  
+          selection={selection} 
+          changeSelection={this.changeSelectionIndex.bind(this)} 
+        />
+        <RouteHandler
+          locations={locations} 
+          tweets={tweets} 
+          changeSelection={this.changeSelectionIndex.bind(this)}
+        />
       </div>
     );
+  }
+
+  changeSelectionIndex(index){
+    this.setState({selection: index});
   }
 
 }

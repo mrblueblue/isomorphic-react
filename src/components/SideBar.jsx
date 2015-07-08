@@ -1,10 +1,11 @@
 import React from 'react';
+import TweetActions from '../actions/TweetActions';
 
 export default class SideBar extends React.Component {
   render(){
     return (
       <div className="sidebar">
-        <LocationNav/>
+        <LocationNav {...this.props} />
       </div>
     );
   }
@@ -12,18 +13,50 @@ export default class SideBar extends React.Component {
 
 class LocationNav extends React.Component {
   render(){
-    console.log("SideBar Render")
     return (
       <nav>
         <ul className="location-nav">
-          <a ><li><h3>LOCATIONS</h3></li></a>
+          <a><li><h3>LOCATIONS</h3></li></a>
           <a></a>
-          <a ><li className="location-nav--selected">San Francisco</li></a>
-          <a ><li>Miami</li></a>
-          <a ><li>New York City</li></a>
-          <a ><li>Minneapolis</li></a>
+          {
+            this.props.locations.map((location, index) => {
+              return (
+                <LocationItem 
+                  selection={index === this.props.selection ? true : false} 
+                  index={index} 
+                  location={location} 
+                  handleClick={this.changeSelection.bind(this, index, location)}
+                />
+              );
+            })
+          }
         </ul>
       </nav>
     );
   }
+
+  changeSelection(index, location){
+    let { router } = this.context
+    console.log(index)
+    this.props.changeSelection(index);
+    TweetActions.fetchTweets(location);
+    router.transitionTo(`/search?location=${location}`);
+  }
 };
+
+LocationNav.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
+
+class LocationItem extends React.Component {
+  render(){
+    return (
+      <a onClick={this.props.handleClick}>
+        <li className={this.props.selection ? 'location-nav--selected' : ''}>
+        {this.props.location}
+        </li>
+      </a>
+    );
+  }
+
+}
