@@ -9,19 +9,12 @@ export default (app) => {
   });
 
   app.get('/search', (req, res, next) => {
-
     run(function*(){
       try {
-        console.log('home route loaded from express', req.query);
         let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0,50));
-        let geocode = {
-          latitude: location[0].latitude,
-          longitude: location[0].longitude
-        };
-
+        let geocode = { latitude: location[0].latitude, longitude: location[0].longitude };
         let tweets = yield TwitterAPI.findTweetsByGeoCode(geocode);
-        console.log(tweets)
-        res.locals.data = { TweetStore: { tweets: tweets.statuses } };
+        res.locals.data = { TweetStore: { tweets: tweets.statuses, locations: [req.query.location]} };
         next();
 
       } catch(e) {
@@ -30,5 +23,20 @@ export default (app) => {
       }
     });
   });
+
+  app.get('/api/search', (req, res) => {
+    run(function*(){
+      try {
+        let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0,50));
+        let geocode = { latitude: location[0].latitude, longitude: location[0].longitude };
+        let tweets = yield TwitterAPI.findTweetsByGeoCode(geocode);
+        res.send(tweets.statuses);
+
+      } catch(e) {
+        console.log(e);
+        res.sendStatus(404);
+      }
+    });
+  })
 
 }
