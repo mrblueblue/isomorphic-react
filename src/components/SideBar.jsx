@@ -16,7 +16,7 @@ class LocationNav extends React.Component {
     return (
       <nav>
         <ul className="location-nav">
-          <a><li><h3>LOCATIONS</h3></li></a>
+          <a><li><h4>LOCATIONS</h4></li></a>
           <a></a>
           {
             this.props.locations.map((location, index) => {

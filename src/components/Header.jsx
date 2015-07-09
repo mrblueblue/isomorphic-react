@@ -42,7 +42,9 @@ class LocationInput extends React.Component {
     return (
       <div className="form-group">
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>To begin, search for tweets by entering a location: </label>
+          <label>
+            To begin, search for tweets by entering a location: 
+          </label>
           <input 
             className='location-input' 
             type='text' value={input} 

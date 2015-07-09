@@ -4,10 +4,13 @@ export default class Tweet extends React.Component {
   render(){
     return (
       <div className='tweet'>
-        <img className='profile-pic' src={this.props.profile_pic} />
-        <p className='screen-name'>{this.props.screen_name}</p>
-        <p className='tweet-timestamp'>{this.props.timestamp}</p>
-        <p className='tweet-content'>{this.props.body}</p>
+        <div className='profile-pic'>
+          <img src={this.props.profile_pic} />
+        </div>
+        <div className='tweet-body'>
+          <p>{this.props.screen_name} @ {this.props.timestamp}</p>
+          <p>{this.props.body}</p>
+        </div>
       </div>
     );
   }
