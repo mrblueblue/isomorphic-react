@@ -20,17 +20,17 @@ export default class App extends React.Component {
   }
 
   render(){
-    let { tweets, locations, selection } = this.state
+    let { tweets, locations, selection } = this.state;
     return (
       <div >
-        <SideBar 
-          locations={locations}  
-          selection={selection} 
-          changeSelection={this.changeSelectionIndex.bind(this)} 
+        <SideBar
+          locations={locations}
+          selection={selection}
+          changeSelection={this.changeSelectionIndex.bind(this)}
         />
         <RouteHandler
-          locations={locations} 
-          tweets={tweets} 
+          locations={locations}
+          tweets={tweets}
           changeSelection={this.changeSelectionIndex.bind(this)}
         />
       </div>

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 export default function run (generator){
   let gen = generator();
@@ -7,7 +7,7 @@ export default function run (generator){
   function next(error, value){
     if (error) { return gen.throw(error); }
     let continuable = gen.next(value);
-    if (continuable.done) { return; }
+    if (continuable.done) { return null; }
     let callback = continuable.value;
     callback(next);
   }

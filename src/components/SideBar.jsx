@@ -21,11 +21,11 @@ class LocationNav extends React.Component {
           {
             this.props.locations.map((location, index) => {
               return (
-                <LocationItem 
+                <LocationItem
                   key={index}
-                  selection={index === this.props.selection ? true : false} 
-                  index={index} 
-                  location={location} 
+                  selection={index === this.props.selection ? true : false}
+                  index={index}
+                  location={location}
                   handleClick={this.changeSelection.bind(this, index, location)}
                 />
               );
@@ -37,12 +37,12 @@ class LocationNav extends React.Component {
   }
 
   changeSelection(index, location){
-    let { router } = this.context
+    let { router } = this.context;
     this.props.changeSelection(index);
     TweetActions.fetchTweets(location);
     router.transitionTo(`/search?location=${location}`);
   }
-};
+}
 
 LocationNav.contextTypes = {
   router: React.PropTypes.func.isRequired

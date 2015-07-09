@@ -12,9 +12,9 @@ export default (app) => {
   app.get('/search', (req, res, next) => {
     run(function*(){
       try {
-        let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0,50));
+        let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0, 50));
         let geocode = { latitude: location[0].latitude, longitude: location[0].longitude };
-        let tweets = formatTweets ( yield TwitterAPI.findTweetsByGeoCode(geocode) );
+        let tweets = formatTweets( yield TwitterAPI.findTweetsByGeoCode(geocode) );
 
         res.locals.data = { TweetStore: { tweets: tweets, locations: [req.query.location]} };
         next();
@@ -29,9 +29,9 @@ export default (app) => {
   app.get('/api/search', (req, res) => {
     run(function*(){
       try {
-        let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0,50));
+        let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0, 50));
         let geocode = { latitude: location[0].latitude, longitude: location[0].longitude };
-        let tweets = formatTweets ( yield TwitterAPI.findTweetsByGeoCode(geocode) );
+        let tweets = formatTweets( yield TwitterAPI.findTweetsByGeoCode(geocode) );
 
         res.send(tweets);
 
@@ -40,6 +40,6 @@ export default (app) => {
         res.sendStatus(404);
       }
     });
-  })
+  });
 
-}
+};

@@ -17,8 +17,8 @@ class TweetActions {
     this.dispatch();
     WebAPI.getTweetsByLocation(location)
       .then((response) => response.json() )
-      .then((json) => this.actions.updateTweets(json) )
-  
+      .then((json) => this.actions.updateTweets(json) );
+
   }
 
   tweetsFailed(errorMessage) {

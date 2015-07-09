@@ -12,7 +12,7 @@ export default class Header extends React.Component {
       </div>
     );
   }
-};
+}
 
 class Headline extends React.Component {
   render(){
@@ -22,8 +22,8 @@ class Headline extends React.Component {
           Isomorphic Javascript
         </h1>
         <p className="list-header__about col-sm-12">
-          Isomorphic Javascript refers to an universal implementation of the 
-          language: code is shared between the client and server. In this case, 
+          Isomorphic Javascript refers to an universal implementation of the
+          language: code is shared between the client and server. In this case,
           React components pre-render Twitter data and are then served to the client.
         </p>
       </div>
@@ -43,11 +43,11 @@ class LocationInput extends React.Component {
       <div className="form-group">
         <form onSubmit={this.handleSubmit.bind(this)}>
           <label>
-            To begin, search for tweets by entering a location: 
+            To begin, search for tweets by entering a location:
           </label>
-          <input 
-            className='location-input' 
-            type='text' value={input} 
+          <input
+            className='location-input'
+            type='text' value={input}
             onChange={this.handleChange.bind(this)}
           />
         </form>
@@ -61,14 +61,14 @@ class LocationInput extends React.Component {
     let location = this.state.input;
     let { changeSelection } = this.props;
     let { router } = this.context;
-    
+
     this.setState({input: ''});
 
     TweetActions.fetchTweets(location);
     TweetActions.addLocation(location);
 
     changeSelection(this.props.locations.length - 1);
-    router.transitionTo(`/search?location=${location}`);    
+    router.transitionTo(`/search?location=${location}`);
   }
 
   handleChange(event){

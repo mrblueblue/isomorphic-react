@@ -9,8 +9,7 @@ import './styles/styles.scss';
 Iso.bootstrap((state, _, container) => {
   alt.bootstrap(state);
 
-  Router.run(reactRoutes, Router.HistoryLocation, (Handler, req) => {
-    console.log(Handler)
+  Router.run(reactRoutes, Router.HistoryLocation, (Handler) => {
     const node = React.createElement(Handler);
     React.render(node, container);
   });

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 export default function thunkify(func){
   return function(){
@@ -6,6 +6,6 @@ export default function thunkify(func){
     return function(callback){
       args.push(callback);
       func.apply(this, args);
-    }
-  }
+    };
+  };
 }

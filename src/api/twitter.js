@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 import Twitter from 'twitter';
-import thunkify from  '../utils/thunkify';
+import thunkify from '../utils/thunkify';
 import config from './config';
 
 const client = new Twitter({
@@ -19,9 +19,9 @@ export default {
       client.get.bind(client, 'search/tweets', {
         geocode: `${latitude},${longitude},10mi`,
         count: 50,
-        result_type: 'recent'  
+        result_type: 'recent'
       })
     )();
   }
 
-}
+};
