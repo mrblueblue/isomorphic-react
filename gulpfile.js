@@ -26,8 +26,15 @@ gulp.task('lint', function(){
         browser: true,
         es6: true
       },
+      globals: {
+        require: true
+      },
       rules: {
-        'quotes': [2, 'single', 'avoid-escape']
+        'quotes': [2, 'single', 'avoid-escape'],
+        'camelcase': 0,
+        'global-strict': 0,
+        'no-console': 0,
+        'no-use-before-define': 0
       }
     }))
     .pipe(eslint.format());
