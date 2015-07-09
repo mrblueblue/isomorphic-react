@@ -22,7 +22,7 @@ $header-size: 200px;
 }
 
 .main-view {
-  @include flex;
+  @include flexbox;
   @include flex-direction(row);
   @include justify-content(center);
   @include flex-wrap(wrap);
@@ -34,7 +34,7 @@ $header-size: 200px;
 }
 
 .sidebar {
-  @include flex;
+  @include flexbox;
   @include flex-direction(column);
 
   height: 100vh;
@@ -83,12 +83,20 @@ p.list-header__about {
   line-height: 30px;
 }
 
+p.list-header__instructions {
+  line-height: 30px;
+}
+
 .list-container {
   @include center-container;
   padding-top: 15px;
 }
 
 ul.location-nav {
+  h4 {
+    color: white;
+  }
+
   li {
     text-align: center;
     padding: 15px 0;
@@ -114,8 +122,47 @@ li.location-nav--selected {
 }
 
 .input-container {
-  @include flex;
+  @include flexbox;
   @include flex-direction(row);
   @include justify-content(flex-start);
   padding-left: 10px;
+}
+
+.tweet {
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  max-width: 720px;
+  border-style: solid;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: white;
+  border-bottom-color: RGBA(245,248,250,.6);
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  opacity: 1;
+}
+
+.tweet-body {
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  margin-left: 25px;
+  width: 500px;
+}
+
+.profile-pic {
+  width: 50px;
+}
+
+img.profile-pic {
+  border-radius: 10px;
+}
+
+.container {
+  padding-left: 50px;
+}
+
+label {
+  font-weight: lighter;
 }
