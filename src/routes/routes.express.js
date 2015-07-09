@@ -1,6 +1,7 @@
 import TwitterAPI from '../api/twitter';
 import GoogleAPI from '../api/google';
 import run from '../utils/run';
+import formatTweets from '../utils/formatTweets';
 
 export default (app) => {
 
@@ -13,8 +14,9 @@ export default (app) => {
       try {
         let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0,50));
         let geocode = { latitude: location[0].latitude, longitude: location[0].longitude };
-        let tweets = yield TwitterAPI.findTweetsByGeoCode(geocode);
-        res.locals.data = { TweetStore: { tweets: tweets.statuses, locations: [req.query.location]} };
+        let tweets = formatTweets ( yield TwitterAPI.findTweetsByGeoCode(geocode) );
+
+        res.locals.data = { TweetStore: { tweets: tweets, locations: [req.query.location]} };
         next();
 
       } catch(e) {
@@ -29,8 +31,9 @@ export default (app) => {
       try {
         let location = yield GoogleAPI.getGeoCode(req.query.location.substring(0,50));
         let geocode = { latitude: location[0].latitude, longitude: location[0].longitude };
-        let tweets = yield TwitterAPI.findTweetsByGeoCode(geocode);
-        res.send(tweets.statuses);
+        let tweets = formatTweets ( yield TwitterAPI.findTweetsByGeoCode(geocode) );
+
+        res.send(tweets);
 
       } catch(e) {
         console.log(e);
