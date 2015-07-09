@@ -19,7 +19,6 @@ export default {
       client.get.bind(client, 'search/tweets', {
         geocode: `${latitude},${longitude},10mi`,
         count: 50,
-        lang: 'en',
         result_type: 'recent'  
       })
     )();
