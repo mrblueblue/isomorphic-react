@@ -21,7 +21,6 @@ export default class App extends React.Component {
 
   render(){
     let { tweets, locations, selection } = this.state
-    console.log(this.state, 'statetatte')
     return (
       <div >
         <SideBar 

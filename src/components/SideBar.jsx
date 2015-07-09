@@ -22,6 +22,7 @@ class LocationNav extends React.Component {
             this.props.locations.map((location, index) => {
               return (
                 <LocationItem 
+                  key={index}
                   selection={index === this.props.selection ? true : false} 
                   index={index} 
                   location={location} 
@@ -37,7 +38,6 @@ class LocationNav extends React.Component {
 
   changeSelection(index, location){
     let { router } = this.context
-    console.log(index)
     this.props.changeSelection(index);
     TweetActions.fetchTweets(location);
     router.transitionTo(`/search?location=${location}`);

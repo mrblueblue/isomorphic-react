@@ -55,15 +55,17 @@ class LocationInput extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    let { router } = this.context;
-    let location = this.state.input;
 
+    let location = this.state.input;
+    let { changeSelection } = this.props;
+    let { router } = this.context;
+    
     this.setState({input: ''});
 
     TweetActions.fetchTweets(location);
     TweetActions.addLocation(location);
-    this.props.changeSelection(this.props.locations.length - 1 );
 
+    changeSelection(this.props.locations.length - 1);
     router.transitionTo(`/search?location=${location}`);    
   }
 

@@ -17,13 +17,8 @@ export default class TweetList extends React.Component {
   }
 
   renderTweet(tweet){
-    let props = {
-      key: tweet.id,
-      text: tweet.text,
-      user: tweet.user.screen_name
-    }
-
+    let { id } = tweet;
     return (
-      <Tweet {...props} />);
+      <Tweet key={id} {...tweet} />);
   }
 }
