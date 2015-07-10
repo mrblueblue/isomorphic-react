@@ -31,7 +31,11 @@ In this specific case, when a user navigates to a defined server-route, the serv
 #### Dependencies
 To run this project locally, you will need to first set-up several dependencies.
 
-1. Create a `config.js` file in `src/api`. Use the API keys from [registering a Twitter application](https://apps.twitter.com/) and [registering a Google Maps application](https://developers.google.com/maps/documentation/javascript/tutorial). See the `example-config.js` for details.
+1. Create a `config.js` file in `src/api`. 
+
+    * Use the API keys from [registering a Twitter application](https://apps.twitter.com/) and [registering a Google Maps application](https://developers.google.com/maps/documentation/javascript/tutorial).
+
+    * See the `example-config.js` for details.
 
 2. Install `iojs`. You will need `nvm` first.
 
