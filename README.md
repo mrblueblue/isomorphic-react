@@ -95,7 +95,7 @@ $ tree src
 │   ├── stores/                # Flux stores
 │   │   └── TweetStore.js      # Store for Tweet data
 │   ├── components/            # React components folder
-│   │   ├── ...
+│   │   ├── ...                # Collection of stateless ('dumb') components
 │   │   └── controller-views/  # Route handlers (high-order components or 'views')
 │   │   │   └── ...
 │   ├── utils/                 # Utility funcitons
