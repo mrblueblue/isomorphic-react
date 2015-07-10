@@ -155,8 +155,10 @@ li.location-nav--selected {
   width: 50px;
 }
 
-img.profile-pic {
-  border-radius: 10px;
+.profile-pic {
+  img {
+    border-radius: 10px;
+  }
 }
 
 .container {
