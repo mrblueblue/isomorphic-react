@@ -83,8 +83,8 @@ $ tree src
 ├── public/                    # Static files to be served
 ├── src/                       # Application source
 │   ├── routes/                # Application routes
-│   │   ├── routes.express.js  # Server routes
-│   │   └── routes.react.js    # Client routes
+│   │   ├── routes.express.js  # Express routes
+│   │   └── routes.react.js    # React-router routes
 │   ├── apis/                  # APIs used by application
 │   │   ├── config.js          # API keys and auth
 │   │   ├── google.js          # Google API functions
