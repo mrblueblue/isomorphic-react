@@ -91,7 +91,7 @@ $ tree src
 │   │   ├── twitter.js         # Twitter API functions
 │   │   └── web.js             # Server API functions
 │   ├── actions/               # Flux actions
-│   │   └── TweetActions.js    # Actions for dispatched to the Tweet Store
+│   │   └── TweetActions.js    # Actions that dispatch to the Tweet Store
 │   ├── stores/                # Flux stores
 │   │   └── TweetStore.js      # Store for Tweet data
 │   ├── components/            # React components folder
@@ -100,7 +100,7 @@ $ tree src
 │   │   │   └── ...
 │   ├── utils/                 # Utility funcitons
 │   │   ├── formatTweets.js    # Function that transforms tweet collection
-│   │   ├── run.js             # Function that runs generators with async thunks
+│   │   ├── run.js             # Function that resolves generators for async
 │   │   └── thunkify.js        # Function that turns node function into a thunk
 │   ├── styles/                # Sass styles folder
 │   │   └── ... 
