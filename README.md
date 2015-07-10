@@ -1,4 +1,4 @@
-## isomorphic-react
+# isomorphic-react
 An isomorphic React/Alt application that uses the Twitter API, React-Router, and ES6 Generators.
 
 ![alt tag](https://raw.github.com/mrblueblue/isomorphic-react/master/isomorphic-react-screenshot.png)
@@ -73,7 +73,7 @@ or
     
 Go to `127.0.0.1:8080` to see the application in action.
 
-## Structure
+## Application Structure
 
 ```bash
 $ tree src
