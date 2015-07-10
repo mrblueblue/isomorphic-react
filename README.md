@@ -78,34 +78,33 @@ Go to `127.0.0.1:8080` to see the application in action.
 ```bash
 $ tree src
 
-├── app.js       
-├── server.js
-├── public/            
-├── src/            
-│   ├── routes/
-│   │   ├── routes.express.js 
-│   │   └── routes.react.js 
-│   ├── apis/
-│   │   ├── config.js 
-│   │   ├── google.js 
-│   │   ├── twitter.js 
-│   │   └── web.js 
-│   ├── actions/
-│   │   └── TweetActions.js 
-│   ├── stores/   
-│   │   └── TweetStore.js 
-│   ├── components/ 
+├── app.js                     # Express server
+├── server.js                  # Server entry point file
+├── public/                    # Static files to be served
+├── src/                       # Application source
+│   ├── routes/                # Application routes
+│   │   ├── routes.express.js  # Server routes
+│   │   └── routes.react.js    # Client routes
+│   ├── apis/                  # APIs used by application
+│   │   ├── config.js          # API keys and auth
+│   │   ├── google.js          # Google API functions
+│   │   ├── twitter.js         # Twitter API functions
+│   │   └── web.js             # Server API functions
+│   ├── actions/               # Flux actions
+│   │   └── TweetActions.js    # Actions for dispatched to the Tweet Store
+│   ├── stores/                # Flux stores
+│   │   └── TweetStore.js      # Store for Tweet data
+│   ├── components/            # React components folder
 │   │   ├── ...
-│   │   └── controller-views/
+│   │   └── controller-views/  # Route handlers (high-order components or 'views')
 │   │   │   └── ...
-│   ├── utils/
-│   │   ├── formatTweets.js 
-│   │   ├── run.js 
-│   │   └── thunkify.js 
-│   ├── styles/
-│   │   └── styles.scss 
-│   ├── alt.js 
-│   └── client.js 
-└── templates/             
-    └── layout.jade       
+│   ├── utils/                 # Utility funcitons
+│   │   ├── formatTweets.js    # Function that transforms tweet collection
+│   │   ├── run.js             # Function that runs generators with async thunks
+│   │   └── thunkify.js        # Function that turns node function into a thunk
+│   ├── styles/                # Sass styles folder
+│   │   └── ... 
+│   ├── alt.js                 # Flux / Alt instance
+│   └── client.js              # Main React application file
+└── templates/                 # Jade templates for rendering
 ```
