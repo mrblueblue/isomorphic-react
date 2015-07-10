@@ -73,4 +73,39 @@ or
     
 Go to `127.0.0.1:8080` to see the application in action.
 
+## Structure
 
+```bash
+$ tree src
+
+├── app.js       
+├── server.js
+├── public/            
+├── src/            
+│   ├── routes/
+│   │   ├── routes.express.js 
+│   │   └── routes.react.js 
+│   ├── apis/
+│   │   ├── config.js 
+│   │   ├── google.js 
+│   │   ├── twitter.js 
+│   │   └── web.js 
+│   ├── actions/
+│   │   └── TweetActions.js 
+│   ├── stores/   
+│   │   └── TweetStore.js 
+│   ├── components/ 
+│   │   ├── ...
+│   │   └── controller-views/
+│   │   │   └── ...
+│   ├── utils/
+│   │   ├── formatTweets.js 
+│   │   ├── run.js 
+│   │   └── thunkify.js 
+│   ├── styles/
+│   │   └── styles.scss 
+│   ├── alt.js 
+│   └── client.js 
+└── templates/             
+    └── layout.jade       
+```
