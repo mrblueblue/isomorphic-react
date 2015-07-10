@@ -28,14 +28,40 @@ To run this project locally, you will need to first set-up several dependencies.
 
 1. [Register a Twitter application](https://apps.twitter.com/) to use the Twitter API; then [register a Google Maps application](https://developers.google.com/maps/documentation/javascript/tutorial) to use the Google Maps API. After getting the necessary API keys, you can create the necessary configuration file located in `/src/api/`. See the `example-config.js` for details.
 
-2. Install `iojs`. Since this project uses ES6 features, you will need to run the server with `iojs`. For more information on installing `nvm` and `iojs`, refer to the [nvm repo](https://github.com/creationix/nvm).
+2. Install `iojs`. You will need `nvm` first.
 
-3. To get the rest of the dependencies, simply run `npm install` in the project folder. If you don't have the Gulp CLI-tool, then install it running `npm install -g gulp`.
+
+        git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+    
+    Source it to activate nvm:
+    
+        . ~/.nvm/nvm.sh
+        
+    Then you can install and use iojs:
+    
+        nvm install iojs
+        nvm use iojs
+  
+
+3. To get the rest of the dependencies:
+
+        npm install
+        npm install -g gulp
 
 #### Building
-After you have all the dependencies you'll need to build the necessary js and css files. To do this, run the `gulp` command. `gulp` will build the necessary files and rebuild the files when necessary by watching for changes.
+
+To build the necessary files, run:
+
+    gulp
+    
+or
+  
+    gulp build
 
 #### Running
-Finally, you are ready to run the servers: `nodemon server.js` (assuming you have ran `nvm use iojs` before!). Go to `127.0.0.1:8080` to see the application in action.
+
+    nodemon server.js
+    
+Go to `127.0.0.1:8080` to see the application in action.
 
 
