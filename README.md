@@ -26,7 +26,7 @@ In this specific case, when a user navigates to a defined server-route, the serv
 #### Dependencies
 To run this project locally, you will need to first set-up several dependencies.
 
-1. Register a Twitter application to use the Twitter API; then register a Google Maps application to use the Google Maps API. After getting the necessary API keys, you can create the necessary configuration file located in `/src/api/`. See the `example-config.js` for details.
+1. [Register a Twitter application](https://apps.twitter.com/) to use the Twitter API; then [register a Google Maps application](https://developers.google.com/maps/documentation/javascript/tutorial) to use the Google Maps API. After getting the necessary API keys, you can create the necessary configuration file located in `/src/api/`. See the `example-config.js` for details.
 
 2. Install `iojs`. Since this project uses ES6 features, you will need to run the server with `iojs`. For more information on installing `nvm` and `iojs`, refer to the [nvm repo](https://github.com/creationix/nvm).
 
