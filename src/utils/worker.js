@@ -1,32 +1,44 @@
+/* TODO Promisify this */
+
 import fs from 'fs';
 import path from 'path';
 const filename = path.join(__dirname, '../../tmp/tweets.json');
 
+function readFilePromise(){
+  return new Promise( (resolve, reject) => {
+    fs.readFile(filename, {encoding: 'utf8'}, (err, data) => {
+      if (err) return reject(err);
+      let tweets = JSON.parse(data);
+      resolve(tweets);
+    })
+  })
+}
+
 export default {
-
   writeTweetToFile: function(tweet){
-    fs.readFile(filename, {encoding: 'utf8'}, function (err, data) {
-      if (err) throw err;
-
-      let tweets = JSON.parse(data)
-      tweets.push(tweet);
-
-      fs.writeFile(filename, JSON.stringify(tweets), function (err) {
-        if (err) return console.log(err);
-        console.log('wrote to file');
+    readFilePromise()
+      .then((tweets) => {
+        tweets.push(tweet);
+        return tweets;
+      })
+      .then((tweets) => {
+        fs.writeFile(filename, JSON.stringify(tweets), (err) => {
+          if (err) return console.log(err);
+          console.log('wrote to file');
+        });
       });
-
-    });
   },
 
-  readTweetsFromFile: function(callback){
-    fs.readFile(filename, {encoding: 'utf8'}, function (err, data) {
-      let tweets = JSON.parse(data);
-      let len = tweets.length
+  readTweetsFromFile: function(){
+    return readFilePromise()
+      .then((tweets) => {
+        tweets = tail(tweets);
+        return tweets;
+      })
 
-      /* Get last fifty tweets */
-      callback(tweets.slice(len - 50, len));
-    });
+    function tail(tweets){
+      let len = tweets.length;
+      return tweets.slice(len - 50, len);
+    }
   }
-
 }
