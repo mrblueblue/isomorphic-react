@@ -22,6 +22,18 @@ export default {
         result_type: 'recent'
       })
     )();
-  }
+  },
 
+  stream: function(geocode, callback){
+    let { latitude, longitude } = geocode;
+    let params = {locations: `${latitude}, ${longitude}`}
+
+    client.stream('statuses/filter', params, (stream) => {
+      stream.on('data', callback);
+     
+      stream.on('error', (error) => {
+        throw error;
+      });
+    });
+  }
 };
