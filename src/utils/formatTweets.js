@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export default function formatTweets(tweets){
-  return tweets.statuses.map((tweet) => {
+  return tweets.map((tweet) => {
     let { screen_name, profile_image_url } = tweet.user;
     let { id, retweeted_status, text, retweet_count, created_at } = tweet;
     return {
