@@ -3,7 +3,7 @@ import TweetActions from '../actions/TweetActions';
 
 class TweetStore {
   constructor() {
-    this.locations = ['San Francisco', 'Miami', 'Oakland'];
+    this.locations = [];
     this.tweets = [];
     this.errorMessage = null;
     this.bindListeners({
