@@ -8,6 +8,8 @@ import expressRoutes from './src/routes/routes.express';
 import reactRoutes from './src/routes/routes.react';
 import alt from './src/alt';
 
+import saveTwitterStream from './src/utils/saveTwitterStream';
+
 const port = 8080;
 const ip = '127.0.0.1';
 const app = express();
@@ -17,6 +19,7 @@ app.set('views', path.join(__dirname, 'templates'));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 expressRoutes(app);
+saveTwitterStream();
 
 app.use((req, res) => {
   alt.bootstrap(JSON.stringify(res.locals.data || {}));
