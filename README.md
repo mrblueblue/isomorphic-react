@@ -78,33 +78,37 @@ Go to `127.0.0.1:8080` to see the application in action.
 ```bash
 $ tree src
 
-├── app.js                     # Express server
-├── server.js                  # Server entry point file
-├── public/                    # Static files to be served
-├── src/                       # Application source
-│   ├── routes/                # Application routes
-│   │   ├── routes.express.js  # Express routes
-│   │   └── routes.react.js    # React-router routes
-│   ├── apis/                  # APIs used by application
-│   │   ├── config.js          # API keys and auth
-│   │   ├── google.js          # Google API functions
-│   │   ├── twitter.js         # Twitter API functions
-│   │   └── web.js             # Server API functions
-│   ├── actions/               # Flux actions
-│   │   └── TweetActions.js    # Actions that dispatch to the Tweet Store
-│   ├── stores/                # Flux stores
-│   │   └── TweetStore.js      # Store for Tweet data
-│   ├── components/            # React components folder
-│   │   ├── ...                # Collection of stateless ('dumb') components
-│   │   └── controller-views/  # Route handlers (high-order components or 'views')
+├── app.js                         # Express server
+├── server.js                      # Server entry point file
+├── public/                        # Static files to be served
+├── src/                           # Application source
+│   ├── routes/                    # Application routes
+│   │   ├── routes.express.js      # Express routes
+│   │   └── routes.react.js        # React-router routes
+│   ├── apis/                      # APIs used by application
+│   │   ├── config.js              # API keys and auth
+│   │   ├── google.js              # Google API functions
+│   │   ├── twitter.js             # Twitter API functions
+│   │   └── web.js                 # Server API functions
+│   ├── actions/                   # Flux actions
+│   │   └── TweetActions.js        # Actions that dispatch to the Tweet Store
+│   ├── stores/                    # Flux stores
+│   │   └── TweetStore.js          # Store for Tweet data
+│   ├── components/                # React components folder
+│   │   ├── ...                    # Collection of stateless ('dumb') components
+│   │   └── controller-views/      # Route handlers (high-order components or 'views')
 │   │   │   └── ...
-│   ├── utils/                 # Utility funcitons
-│   │   ├── formatTweets.js    # Function that transforms tweet collection
-│   │   ├── run.js             # Function that resolves generators for async
-│   │   └── thunkify.js        # Function that turns node function into a thunk
-│   ├── styles/                # Sass styles folder
+│   ├── utils/                     # Utility funcitons
+│   │   ├── saveTwitterStream.js   # Function that initializes saving tweets
+│   │   ├── formatTweets.js        # Function that transforms tweet collection
+│   │   ├── handleTweetRequest.js  # Express route middleware/handler
+│   │   ├── worker.js              # Reads and writes tweets to tmp folder
+│   │   ├── run.js                 # Function that resolves generators for async
+│   │   └── thunkify.js            # Function that turns node function into a thunk
+│   ├── styles/                    # Sass styles folder
 │   │   └── ... 
-│   ├── alt.js                 # Flux / Alt instance
-│   └── client.js              # Main React application file
-└── templates/                 # Jade templates for rendering
+│   ├── alt.js                     # Flux / Alt instance
+│   └── client.js                  # Main React application file
+├── tmp/                           # Saved tweets directory
+└── templates/                     # Jade templates for rendering
 ```
