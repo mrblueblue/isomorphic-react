@@ -8,10 +8,17 @@ function readFilePromise(){
   return new Promise( (resolve, reject) => {
     fs.readFile(filename, {encoding: 'utf8'}, (err, data) => {
       if (err) return reject(err);
-      let tweets = JSON.parse(data);
-      resolve(tweets);
-    })
-  })
+
+      try {
+        let tweets = JSON.parse(data);
+        resolve(tweets);
+
+      } catch (e) {
+        console.log(e);
+        fs.writeFile(filename, '[]');
+      }
+    });
+  });
 }
 
 export default {
